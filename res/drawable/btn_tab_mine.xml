@@ -1,0 +1,6 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/icon_titlebar_me_selected" android:state_selected="true"></item>
+    <item android:drawable="@drawable/icon_titlebar_me" ></item>
+
+</selector>

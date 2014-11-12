@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/main_tablayout"
+        android:layout_marginBottom="-8dp" />
+
+    <RelativeLayout
+        android:id="@+id/llTask"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/main_tablayout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:id="@+id/tabSquare"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_titilebar"
+            android:onClick="onTabClicked" >
+
+            <ImageView
+                android:id="@+id/ivSquare"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="12dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/btn_tab_square" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ivSquare"
+                android:layout_centerHorizontal="true"
+                android:text="广场"
+                android:textColor="@drawable/tab_text_color"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/redotSquare"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_alignRight="@+id/ivSquare"
+                android:layout_alignTop="@+id/ivSquare"
+                android:background="@drawable/unread_circle"
+                android:gravity="center"
+                android:text="3"
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/tabCommunication"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_titilebar"
+            android:onClick="onTabClicked" >
+
+            <ImageView
+                android:id="@+id/ivCommunication"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="12dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/btn_tab_communication" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ivCommunication"
+                android:layout_centerHorizontal="true"
+                android:text="沟通"
+                android:textColor="@drawable/tab_text_color"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/redotCommunication"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_alignRight="@+id/ivCommunication"
+                android:layout_alignTop="@+id/ivCommunication"
+                android:background="@drawable/unread_circle"
+                android:gravity="center"
+                android:text="3"
+                android:textColor="@color/white"
+                android:textSize="11sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/btPost"
+            android:layout_width="58dp"
+            android:layout_height="60dp"
+            android:background="@drawable/button_titilebar_plus"
+            android:onClick="onPlusClick" >
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="22dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/icon_titilebar_plus" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/tabDiscover"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_titilebar"
+            android:onClick="onTabClicked" >
+
+            <ImageView
+                android:id="@+id/ivDiscover"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="12dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/btn_tab_discover" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ivDiscover"
+                android:layout_centerHorizontal="true"
+                android:text="发现"
+                android:textColor="@drawable/tab_text_color"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/redotDiscover"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_alignRight="@+id/ivDiscover"
+                android:layout_alignTop="@+id/ivDiscover"
+                android:background="@drawable/unread_circle"
+                android:gravity="center"
+                android:text="3"
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/tabMine"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_titilebar"
+            android:onClick="onTabClicked" >
+
+            <ImageView
+                android:id="@+id/ivMine"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="12dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/btn_tab_mine" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ivMine"
+                android:layout_centerHorizontal="true"
+                android:text="我"
+                android:textColor="@drawable/tab_text_color"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/redotMine"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_alignRight="@+id/ivMine"
+                android:layout_alignTop="@+id/ivMine"
+                android:background="@drawable/unread_circle"
+                android:gravity="center"
+                android:text="3"
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>
