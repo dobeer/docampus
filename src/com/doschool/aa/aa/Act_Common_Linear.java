@@ -46,7 +46,6 @@ public abstract class Act_Common_Linear extends Activity{
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		setTheme(android.R.style.Theme_Holo_Light_NoActionBar);
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		super.onCreate(savedInstanceState);
 		

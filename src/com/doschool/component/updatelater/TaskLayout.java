@@ -1,4 +1,4 @@
-package com.doschool.aa.widget;
+package com.doschool.component.updatelater;
 
 import java.util.zip.Inflater;
 
@@ -14,6 +14,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.support.v4.view.ViewPager;
+import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -65,6 +66,12 @@ public class TaskLayout extends RelativeLayout {
 	Animation anim_hide;
 	
 	
+	
+	public TaskLayout(Context context, AttributeSet attrs) {
+		super(context);
+		// TODO Auto-generated constructor stub
+	}
+
 	public TaskLayout(Context context) {
 		super(context);
 

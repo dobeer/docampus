@@ -3,7 +3,7 @@ package com.doschool.aa.aa;
 import com.doschool.aa.widget.ActionBarLayout;
 import com.doschool.aa.widget.SlidingTab;
 import com.doschool.aa.widget.TabPagerSpec;
-import com.doschool.aa.widget.TaskLayout;
+import com.doschool.component.updatelater.TaskLayout;
 import com.doschool.methods.DoMethods;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.listener.PauseOnScrollListener;

@@ -21,8 +21,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-                
-    
+
     <meta-data
         android:name="api_key"
         android:value="SuzbZRlEGULgnh5X1PrOEm8u" />
@@ -33,48 +32,50 @@
 
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <uses-permission android:name="android.permission.GET_TASKS" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name="com.doschool.app.DoschoolApp"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/appName"
-        android:theme="@android:style/Theme.Light.NoTitleBar" >
-	    <!-- 设置环信应用的appkey -->
-		<meta-data
-			android:name="EASEMOB_APPKEY"
-			android:value="dobellfate#sandbox" />
-		<!-- 声明sdk所需的service -->
-		<service android:name="com.easemob.chat.EMChatService" />
-        
+        android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
+
+        <!-- 设置环信应用的appkey -->
+        <meta-data
+            android:name="EASEMOB_APPKEY"
+            android:value="dobellfate#sandbox" />
+        <!-- 声明sdk所需的service -->
+        <service android:name="com.easemob.chat.EMChatService" />
+
         <meta-data
             android:name="UMENG_APPKEY"
             android:value="XXX" />
-        <meta-data android:value="wwwdobellme" android:name="UMENG_CHANNEL"/>
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="wwwdobellme" />
+
         <service
-    		android:name="com.umeng.update.net.DownloadingService"
-    		android:process=":DownloadingService" >
-		</service>
-		<activity 
-    		android:name="com.umeng.update.UpdateDialogActivity"
-   		 	android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-		</activity>
+            android:name="com.umeng.update.net.DownloadingService"
+            android:process=":DownloadingService" >
+        </service>
+
+        <activity
+            android:name="com.umeng.update.UpdateDialogActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+
         <service android:name="com.doschool.component.updatelater.PostLaterService" >
         </service>
 
         <activity android:name="com.umeng.fb.ConversationActivity" />
         <activity android:name="com.umeng.fb.ContactActivity" />
-       
         <activity android:name="com.doschool.aa.activity.Act_Color" >
         </activity>
         <activity
             android:name="com.doschool.aa.activity.Act_Trans"
             android:windowSoftInputMode="stateVisible|adjustResize" >
         </activity>
-        
-        
-        
         <activity android:name="com.doschool.aa.activity.Act_Setting" >
         </activity>
         <activity android:name="com.doschool.aa.activity.Act_PicGallery" >
@@ -86,7 +87,7 @@
         <activity android:name="com.doschool.aa.activity.Act_UpdateIntro" >
         </activity>
         <activity android:name="com.doschool.aa.activity.Act_BlogList" >
-             </activity>
+        </activity>
         <activity android:name="com.doschool.aa.activity.Act_BlogMsg" >
         </activity>
         <activity android:name="com.doschool.aa.activity.Act_Login" >
@@ -112,7 +113,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.doschool.aa.activity.zAct_Main" >
+        <activity
+            android:name="com.doschool.aa.activity.zAct_Main"
+            android:screenOrientation="sensorPortrait" >
         </activity>
         <activity android:name="ccom.doschool.act.main.Act_Register" >
         </activity>
@@ -120,8 +123,6 @@
         </activity>
         <activity android:name="com.doschool.aa.activity.Act_Common_Linear" >
         </activity>
-        
-        
         <activity
             android:name="com.doschool.aa.activity.Act_OneBlog"
             android:windowSoftInputMode="adjustUnspecified|stateHidden" >
@@ -225,7 +226,8 @@
             android:name=".aa.tools.ActivityTool"
             android:windowSoftInputMode="adjustUnspecified|stateHidden" >
         </activity>
-        <activity android:name=".aa.im.activity.Act_SingleChat"></activity>
+        <activity android:name=".aa.im.activity.Act_SingleChat" >
+        </activity>
     </application>
 
 </manifest>

@@ -7,7 +7,6 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 
-import com.doschool.aa.widget.TaskLayout;
 import com.doschool.app.DoschoolApp;
 
 public class PostLaterReceiver extends BroadcastReceiver

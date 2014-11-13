@@ -10,12 +10,15 @@
         android:layout_above="@+id/main_tablayout"
         android:layout_marginBottom="-8dp" />
 
-    <RelativeLayout
-        android:id="@+id/llTask"
+    
+    
+    
+    <com.doschool.component.updatelater.TaskLayout
+        android:id="@+id/taskLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
-    </RelativeLayout>
-
+    </com.doschool.component.updatelater.TaskLayout>
+    
     <LinearLayout
         android:id="@+id/main_tablayout"
         android:layout_width="match_parent"
@@ -29,7 +32,7 @@
             android:layout_height="60dp"
             android:layout_weight="1"
             android:background="@drawable/bg_titilebar"
-            android:onClick="onTabClicked" >
+            android:onClick="onPopupItemClick" >
 
             <ImageView
                 android:id="@+id/ivSquare"
@@ -69,7 +72,7 @@
             android:layout_height="60dp"
             android:layout_weight="1"
             android:background="@drawable/bg_titilebar"
-            android:onClick="onTabClicked" >
+            android:onClick="onPopupItemClick" >
 
             <ImageView
                 android:id="@+id/ivCommunication"
@@ -107,7 +110,7 @@
             android:layout_width="58dp"
             android:layout_height="60dp"
             android:background="@drawable/button_titilebar_plus"
-            android:onClick="onPlusClick" >
+            android:onClick="onPostClick" >
 
             <ImageView
                 android:layout_width="28dp"
@@ -124,7 +127,7 @@
             android:layout_height="60dp"
             android:layout_weight="1"
             android:background="@drawable/bg_titilebar"
-            android:onClick="onTabClicked" >
+            android:onClick="onPopupItemClick" >
 
             <ImageView
                 android:id="@+id/ivDiscover"
@@ -164,7 +167,7 @@
             android:layout_height="60dp"
             android:layout_weight="1"
             android:background="@drawable/bg_titilebar"
-            android:onClick="onTabClicked" >
+            android:onClick="onPopupItemClick" >
 
             <ImageView
                 android:id="@+id/ivMine"

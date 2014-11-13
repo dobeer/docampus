@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import com.doschool.R;
 import com.doschool.aa.aa.Act_CommonOld;
 import com.doschool.aa.adapter.Adp_Blog;
-import com.doschool.aa.widget.TaskLayout;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -25,6 +24,7 @@ import com.doschool.component.push2refresh.PullToRefreshBase;
 import com.doschool.component.push2refresh.PullToRefreshListView;
 import com.doschool.component.push2refresh.PullToRefreshBase.OnRefreshListener;
 import com.doschool.component.updatelater.PostLaterService;
+import com.doschool.component.updatelater.TaskLayout;
 import com.doschool.component.updatelater.TaskManage;
 import com.doschool.entity.Microblog;
 import com.doschool.entity.SimplePerson;
