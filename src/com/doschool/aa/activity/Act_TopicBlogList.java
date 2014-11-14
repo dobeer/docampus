@@ -34,7 +34,6 @@ import android.view.View.OnClickListener;
 import com.doschool.app.ActivityName;
 import com.doschool.app.DoschoolApp;
 import com.doschool.app.MySession;
-import com.doschool.asynctask.RefreshBlogListTask;
 import com.doschool.asynctask.RefreshFriendListTask;
 import com.doschool.component.choosephoto.Act_PhotoChoose;
 import com.doschool.component.push2refresh.PullToRefreshBase;
@@ -97,11 +96,11 @@ public class Act_TopicBlogList extends Act_CommonOld implements OnClickListener 
 		ptrlv.setOnRefreshListener(new OnRefreshListener<ListView>() {
             @Override
             public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
-            	new RefreshBlogListTask(ptrlv, adpter, dataList, 6, 0, topicData.topic, false).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+//            	new RefreshBlogListTask(ptrlv, adpter, dataList, 6, 0, topicData.topic, false).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
             }
             @Override
             public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
-            	new RefreshBlogListTask(ptrlv, adpter, dataList, 6, 0, topicData.topic, true).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+//            	new RefreshBlogListTask(ptrlv, adpter, dataList, 6, 0, topicData.topic, true).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
             }
         });
 		

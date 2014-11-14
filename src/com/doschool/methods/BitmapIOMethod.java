@@ -75,8 +75,12 @@ public class BitmapIOMethod {
 			if (options == 20)
 				break;
 		}
+		Log.v("compressBmpToFilepATH=="+file.getPath(), "YYYYYYYYY");
 		try {
+			if(!new File(file.getParent()).exists())
+				new File(file.getParent()).mkdir();
 			FileOutputStream fos = new FileOutputStream(file);
+			
 			fos.write(baos.toByteArray());
 			fos.flush();
 			fos.close();

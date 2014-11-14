@@ -162,7 +162,7 @@ public class DoschoolApp extends FrontiaApplication {
 	public static int pxperdp=0;
 	
 	/******** 数量控制 ****************************************/
-	public static final int BLOG_LIST_LOAD_COUNT = 10;
+	public static final int BLOG_LIST_LOAD_COUNT = 12;
 	public static final int BLOG_PIC_MAX_COUNT = 9;
 	public static final int BLOG_CONTENT_CHARACTER_NUM = 1000;
 	public static final int CMT_CONTENT_CHARACTER_NUM = 1000;

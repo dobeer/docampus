@@ -19,12 +19,15 @@ import com.doschool.zother.MJSONObject;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,7 +43,7 @@ public class Oneblog_LaunchCmt extends LinearLayout {
 	private static final int ID_PARENT=4;
 	
 	/******** 界面组件  ****************************************/
-	private Button btEmotion,btAt;
+	private ImageButton btEmotion,btAt;
 	private BlogEditText metText;
 	private TextView mtvSend;
 	
@@ -116,60 +119,29 @@ public class Oneblog_LaunchCmt extends LinearLayout {
 		this.containerAct=(Act_OneBlog) context;
 		this.blogData=microblog;
 		this.objPersonId=microblog.author.personId;
-		this.setPadding(0, 0, 0, 0);
-		this.setBackgroundResource(R.color.bg_grey);
-		this.setOrientation(LinearLayout.VERTICAL);
-
-		ImageView llShadow=new ImageView(getContext());
-//		llShadow.setImageResource(R.drawable.img_shaow_toup);
-		llShadow.setBackgroundResource(R.drawable.img_shaow_toup);
-		llShadow.setScaleType(ScaleType.FIT_XY);
-		this.addView(llShadow,LayoutParams.MATCH_PARENT,mDip*2);
-		LinearLayout llUp=new LinearLayout(getContext());
-		this.addView(llUp);
 		
-		//2  本身的设定
-		llUp.setOrientation(LinearLayout.HORIZONTAL);
-		llUp.setPadding(0, 0, 0, 0);
-		llUp.setBackgroundResource(R.color.white);
-		llUp.setGravity(Gravity.CENTER);
+		LayoutInflater.from(getContext()).inflate(R.layout.comment_layout, this);
 		
-		btEmotion=new Button(getContext());
+		btEmotion=(ImageButton) findViewById(R.id.btEmotion);
 		btEmotion.setTag(Integer.valueOf(ID_EMOTION));
-		btEmotion.setBackgroundResource(R.drawable.img_emotion);
-		LinearLayout.LayoutParams lp=new LayoutParams(mDip*24, mDip*24);
-		lp.setMargins(12*mDip, 6*mDip, 6*mDip, 6*mDip);
-		llUp.addView(btEmotion,lp);
 		
-		btAt=new Button(getContext());
+		btAt=(ImageButton) findViewById(R.id.btAt);
 		btAt.setTag(Integer.valueOf(ID_AT));
-		btAt.setBackgroundResource(R.drawable.img_at);
-		LinearLayout.LayoutParams lp2=new LayoutParams(mDip*24, mDip*24);
-		lp2.setMargins(6*mDip, 6*mDip, 6*mDip, 6*mDip);
-		llUp.addView(btAt,lp2);
 		
 		//3  评论框
-		metText = new BlogEditText(getContext(), btEmotion, btAt, new LinearLayout(getContext()));
-		metText.setMaxLines(5);
-		metText.clearFocus();
-		metText.setBackgroundResource(android.R.color.white);
-		LayoutParams lp3=new LayoutParams(parentWidth-mDip*(150),LayoutParams.WRAP_CONTENT);
-		llUp.addView(metText,lp3);
-		
+		metText =(BlogEditText) findViewById(R.id.metText);
+		metText.init(btEmotion, btAt, new LinearLayout(getContext()));
 		
 		//4  评论按钮
-		mtvSend=WidgetFactory.createTextView(getContext(), "确定", android.R.color.white, 18);
+		mtvSend=(Button) findViewById(R.id.mtvSend);
 		mtvSend.setTag(Integer.valueOf(ID_SEND));
 		mtvSend.setOnClickListener(onClickListener);
-		mtvSend.setTextColor(getResources().getColor(R.color.zd_gery));
-		mtvSend.setGravity(Gravity.CENTER);
-		mtvSend.setBackgroundResource(R.drawable.btn_style_launchcmt);
-		LayoutParams lp4=new LayoutParams(mDip*60, mDip*32);
-		lp4.setMargins(6*mDip, 6*mDip, 6*mDip, 6*mDip);
-		llUp.addView(mtvSend,lp4);
-		this.addView(metText.emotionLayout, LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
 		
-		this.addView(metText.atListLayout, LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
+		RelativeLayout downLayout=(RelativeLayout) findViewById(R.id.downLayout);
+		
+		downLayout.addView(metText.emotionLayout, LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
+		
+		downLayout.addView(metText.atListLayout, LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
 		metText.addTextChangedListener(
 				new BlogContentTextWatcher(null, new TextView(getContext()), metText,DoschoolApp.CMT_CONTENT_CHARACTER_NUM));
 	}
@@ -181,8 +153,7 @@ public class Oneblog_LaunchCmt extends LinearLayout {
 		
 		protected void onPreExecute() {
 			metText.setEnabled(false);
-			mtvSend.setText("..");
-			mtvSend.setClickable(false);
+			mtvSend.setEnabled(false);
 //			containerAct.callRefreshOnCommenting();
 		}
 		
@@ -201,16 +172,16 @@ public class Oneblog_LaunchCmt extends LinearLayout {
 			if (code == 0) {
 				metText.setText("");
 				metText.setEnabled(true);
-				mtvSend.setText("确定");
-				mtvSend.setClickable(true);
+				mtvSend.setText("评论");
+				mtvSend.setEnabled(true);
 				DoMethods.showToast(getContext(), "评论成功");
 				SpMethods.saveLong(getContext(), SpMethods.LAST_COMMENT_TIME, System.currentTimeMillis());
 				containerAct.callRefreshAfterCommentSucceed();
 			} else {
 				
 				metText.setEnabled(true);
-				mtvSend.setText("确定");
-				mtvSend.setClickable(true);
+				mtvSend.setText("评论");
+				mtvSend.setEnabled(true);
 				if (toast.length() == 0) {
 					if (code == 1)
 						toast = "无此用户";

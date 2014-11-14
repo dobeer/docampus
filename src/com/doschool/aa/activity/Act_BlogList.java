@@ -19,7 +19,6 @@ import android.view.View.OnClickListener;
 
 import com.doschool.app.DoschoolApp;
 import com.doschool.app.MySession;
-import com.doschool.asynctask.RefreshBlogListTask;
 import com.doschool.component.push2refresh.PullToRefreshBase;
 import com.doschool.component.push2refresh.PullToRefreshListView;
 import com.doschool.component.push2refresh.PullToRefreshBase.OnRefreshListener;
@@ -28,6 +27,7 @@ import com.doschool.component.updatelater.TaskLayout;
 import com.doschool.component.updatelater.TaskManage;
 import com.doschool.entity.Microblog;
 import com.doschool.entity.SimplePerson;
+import com.doschool.entity.SquareEntity;
 
 import android.widget.ListView;
 import android.widget.LinearLayout.LayoutParams;
@@ -41,7 +41,7 @@ public class Act_BlogList extends Act_CommonOld {
 
 	/******** 界面组件 ****************************************/
 	PullToRefreshListView ptrlv;
-	ArrayList<Microblog> dataList;
+	ArrayList<SquareEntity> dataList;
 	Adp_Blog adpter;
 
 	/******** 数据其他 ****************************************/
@@ -55,8 +55,8 @@ public class Act_BlogList extends Act_CommonOld {
 		ACTIONBAR_TITTLE = personData.nickName;
 
 		ptrlv = new PullToRefreshListView(this);
-		dataList = new ArrayList<Microblog>();
-		adpter = new Adp_Blog(this, dataList);
+		dataList = new ArrayList<SquareEntity>();
+//		adpter = new Adp_Blog(this, dataList);
 		
 
 		ptrlv.getRefreshableView().setDivider(null);
@@ -70,17 +70,17 @@ public class Act_BlogList extends Act_CommonOld {
 			public void onPullDownToRefresh(
 					PullToRefreshBase<ListView> refreshView) {
 
-				new RefreshBlogListTask(ptrlv, adpter, dataList, 5,
-						personData.personId, false)
-						.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+//				new RefreshBlogListTask(ptrlv, adpter, dataList, 5,
+//						personData.personId, false)
+//						.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 			}
 
 			@Override
 			public void onPullUpToRefresh(
 					PullToRefreshBase<ListView> refreshView) {
-				new RefreshBlogListTask(ptrlv, adpter, dataList, 5,
-						personData.personId, true)
-						.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+//				new RefreshBlogListTask(ptrlv, adpter, dataList, 5,
+//						personData.personId, true)
+//						.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 			}
 		});
 	}
@@ -109,14 +109,14 @@ public class Act_BlogList extends Act_CommonOld {
 	}
 
 	public void onResume() {
-		
-		for (int i = 0; i < dataList.size(); i++)
-			if (dataList.get(i).blogId == -1) {
-				dataList.remove(i);
-				Log.v("onResume_" + i, "onResume");
-
-			}
-		adpter.notifyDataSetChanged();
+//		
+//		for (int i = 0; i < dataList.size(); i++)
+//			if (dataList.get(i).blogId == -1) {
+//				dataList.remove(i);
+//				Log.v("onResume_" + i, "onResume");
+//
+//			}
+//		adpter.notifyDataSetChanged();
 		super.onResume();
 	}
 

@@ -93,6 +93,9 @@ public class ConvertMethods {
 		Calendar currentC = Calendar.getInstance();
 		if (currentC.getTimeInMillis() - changeC.getTimeInMillis() < 0) {
 			return "来自未来";
+		} else if (changeC.get(Calendar.YEAR) < currentC.get(Calendar.YEAR) - 4) {
+			return "过去的过去";
+		
 		} else if (changeC.get(Calendar.YEAR) < currentC.get(Calendar.YEAR) - 2) {
 			return new SimpleDateFormat("yyyy年M月d日 H:mm").format(changeC.getTime());
 		} else if (changeC.get(Calendar.YEAR) == currentC.get(Calendar.YEAR) - 2) {

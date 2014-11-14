@@ -12,12 +12,12 @@
 
     
     
-    
-    <com.doschool.component.updatelater.TaskLayout
-        android:id="@+id/taskLayout"
+    <RelativeLayout 
+        android:id="@+id/taskParent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
-    </com.doschool.component.updatelater.TaskLayout>
+    </RelativeLayout>
+    
     
     <LinearLayout
         android:id="@+id/main_tablayout"
@@ -32,7 +32,7 @@
             android:layout_height="60dp"
             android:layout_weight="1"
             android:background="@drawable/bg_titilebar"
-            android:onClick="onPopupItemClick" >
+            android:onClick="onTabClicked" >
 
             <ImageView
                 android:id="@+id/ivSquare"
@@ -72,7 +72,7 @@
             android:layout_height="60dp"
             android:layout_weight="1"
             android:background="@drawable/bg_titilebar"
-            android:onClick="onPopupItemClick" >
+            android:onClick="onTabClicked" >
 
             <ImageView
                 android:id="@+id/ivCommunication"
@@ -127,7 +127,7 @@
             android:layout_height="60dp"
             android:layout_weight="1"
             android:background="@drawable/bg_titilebar"
-            android:onClick="onPopupItemClick" >
+            android:onClick="onTabClicked" >
 
             <ImageView
                 android:id="@+id/ivDiscover"
@@ -167,7 +167,7 @@
             android:layout_height="60dp"
             android:layout_weight="1"
             android:background="@drawable/bg_titilebar"
-            android:onClick="onPopupItemClick" >
+            android:onClick="onTabClicked" >
 
             <ImageView
                 android:id="@+id/ivMine"

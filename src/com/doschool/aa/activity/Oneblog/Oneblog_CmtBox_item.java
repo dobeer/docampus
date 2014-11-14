@@ -70,7 +70,14 @@ public class Oneblog_CmtBox_item extends RelativeLayout {
 		tvSubNick=(TextView) findViewById(R.id.tvSub);
 		tvSubNick.setText(comment.subPerson.nickName);
 		if(cmt.subPerson.personId==microblog.author.personId)
+		{
 			tvSubNick.setText("楼主");
+			if(cmt.subPerson.sex.equals("女"))
+				tvSubNick.setTextColor(getResources().getColor(R.color.red));
+			else
+				tvSubNick.setTextColor(getResources().getColor(R.color.blue));
+		}
+		
 		else
 		{
 			for(int i=0;i<DoschoolApp.cardsList.size();i++)
@@ -88,7 +95,14 @@ public class Oneblog_CmtBox_item extends RelativeLayout {
 		mtvObjNick=(TextView) findViewById(R.id.tvObj);
 		mtvObjNick.setText(comment.objPerson.nickName);
 		if(cmt.objPerson.personId==microblog.author.personId)
+		{
 			mtvObjNick.setText("楼主");
+			if(cmt.objPerson.sex.equals("女"))
+				mtvObjNick.setTextColor(getResources().getColor(R.color.red));
+			else
+				mtvObjNick.setTextColor(getResources().getColor(R.color.blue));
+				
+		}
 		else
 		{
 			for(int i=0;i<DoschoolApp.cardsList.size();i++)
@@ -104,7 +118,9 @@ public class Oneblog_CmtBox_item extends RelativeLayout {
 		
 		TextView mtvFloor=(TextView) findViewById(R.id.tvFloor);
 		mtvFloor.setText(FloorNo+"楼");
-
+		TextView tvDate=(TextView) findViewById(R.id.tvDate);
+		tvDate.setText(ConvertMethods.dateLongToDiyStr(cmt.time));
+		
 		paste = ConvertMethods.removeTextTag(tvContent.getText().toString());
 		tvContent.setOnLongClickListener(new OnLongClickListener() {
 			@Override
@@ -118,7 +134,11 @@ public class Oneblog_CmtBox_item extends RelativeLayout {
 			}
 		});
 
-		
+		if(FloorNo==1)
+			ivDivide.setVisibility(View.INVISIBLE);
+		else
+			ivDivide.setVisibility(View.VISIBLE);
+			
 	}
 
 }

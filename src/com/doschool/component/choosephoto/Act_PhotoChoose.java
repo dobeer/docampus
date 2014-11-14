@@ -362,7 +362,9 @@ public class Act_PhotoChoose extends Act_CommonOld implements OnClickListener, O
 				imageFolderList.addAll(subGroupOfImage(mGruopMap));
 				mFolderAdapter = new FolderAdapter(Act_PhotoChoose.this, imageFolderList);
 				lvFolder.setAdapter(mFolderAdapter);
-				List<String> childList = mGruopMap.get(imageFolderList.get(0).getFolderName());
+				List<String> childList=new ArrayList<String>();
+				if(imageFolderList.size()>0)
+					childList = mGruopMap.get(imageFolderList.get(0).getFolderName());
 
 				PhotoAdapter = new ImageGridAdapter(Act_PhotoChoose.this, childList, Act_PhotoChoose.this, mSelectList,maxCount,onCameraClick);
 				photoGridView.setAdapter(PhotoAdapter);
@@ -376,10 +378,11 @@ public class Act_PhotoChoose extends Act_CommonOld implements OnClickListener, O
 	 * 完成imageFolderList的数据填充
 	 */
 	private List<ImageFolder> subGroupOfImage(HashMap<String, List<String>> mGruopMap) {
-		if (mGruopMap.size() == 0) {
-			return null;
-		}
+
 		List<ImageFolder> list = new ArrayList<ImageFolder>();
+		if (mGruopMap.size() == 0) {
+			return list;
+		}
 
 		Iterator<Map.Entry<String, List<String>>> it = mGruopMap.entrySet().iterator();
 		while (it.hasNext()) {

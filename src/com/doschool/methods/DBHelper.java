@@ -10,11 +10,13 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 public class DBHelper extends SQLiteOpenHelper {
-	private static final String DB_NAME = "missan14.db";
+	private static final String DB_NAME = "missan15.db";
 	static final String TBL_TASK = "task";
 	static final String TBL_PIC = "pic";
+	static final String TBL_TOPIC = "topic";
 
 	public static final String TBL_TASK_FILD_TID = "tid";
 	public static final String TBL_TASK_FILD_USRID = "usrId";
@@ -29,6 +31,11 @@ public class DBHelper extends SQLiteOpenHelper {
 	public static final String TBL_PIC_FILD_TID = "tid";
 	public static final String TBL_PIC_FILD_PATH = "path";
 	
+
+	public static final String TBL_TOPIC_FILD_TID = "tid";
+	public static final String TBL_TOPIC_FILD_CONTENT = "content";
+	public static final String TBL_TOPIC_FILD_ISCLOSED = "isclosed";
+	
 	
 	private static final String CREATE_TBL_TASK = "create table " + TBL_TASK
 			+ "(tid integer primary key autoincrement,usrId text, tranId text,rootId text,Content text,topic text,defination text,date text)";
@@ -36,6 +43,12 @@ public class DBHelper extends SQLiteOpenHelper {
 	private static final String CREATE_TBL_PIC = "create table " + TBL_PIC
 			+ "(pid integer primary key autoincrement,tid text, path text)";
 
+	private static final String CREATE_TBL_TOPIC = "create table " + TBL_TOPIC
+			+ "(_id integer primary key autoincrement,tid text,content text, isclosed text)";
+
+	
+	
+	
 	public DBHelper(Context context) {
 		super(context, DB_NAME, null, 1);
 	}
@@ -44,6 +57,7 @@ public class DBHelper extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase db) {
 		db.execSQL(CREATE_TBL_TASK);
 		db.execSQL(CREATE_TBL_PIC);
+		db.execSQL(CREATE_TBL_TOPIC);
 	}
 
 	
@@ -69,7 +83,39 @@ public class DBHelper extends SQLiteOpenHelper {
 		}
 	}
 
-	
+	public void insertTopic(int tid,String content,boolean isClosed) {
+
+		ContentValues cv = new ContentValues();
+		cv.put(TBL_TOPIC_FILD_TID, tid);
+		cv.put(TBL_TOPIC_FILD_CONTENT, content);
+		cv.put(TBL_TOPIC_FILD_ISCLOSED, isClosed);
+		DoschoolApp.db.insert(TBL_TOPIC, null, cv);
+	}
+	public ArrayList<Integer> getClosedTopic() {
+
+		Cursor cursor_task = null;
+		ArrayList<Integer> closedList=new ArrayList<Integer>();
+		try {
+			
+			cursor_task = DoschoolApp.db.query(TBL_TOPIC, new String[] { 
+					TBL_TOPIC_FILD_TID, 
+					TBL_TOPIC_FILD_CONTENT, 
+					TBL_TOPIC_FILD_ISCLOSED}, null, null,
+					null, null, null);
+			
+				while (cursor_task.moveToNext()) {
+					closedList.add(cursor_task.getInt(0));
+					Log.v("MMM"+cursor_task.getInt(0), "MMM");
+				}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (cursor_task != null) {
+				cursor_task.close();
+			}
+		}
+		return closedList;
+	}
 	
 	
 	
@@ -144,6 +190,7 @@ public class DBHelper extends SQLiteOpenHelper {
 	{
 		DoschoolApp.db.execSQL("delete from '"+TBL_TASK+"'");
 		DoschoolApp.db.execSQL("delete from '"+TBL_PIC+"'");
+		DoschoolApp.db.execSQL("delete from '"+TBL_TOPIC+"'");
 	}
 	
 	@Override

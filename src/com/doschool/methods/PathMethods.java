@@ -3,6 +3,7 @@ package com.doschool.methods;
 import java.io.File;
 
 import android.os.Environment;
+import android.util.Log;
 
 public class PathMethods {
 

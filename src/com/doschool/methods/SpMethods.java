@@ -1,5 +1,7 @@
 package com.doschool.methods;
 
+import java.util.Set;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 
@@ -20,6 +22,13 @@ public class SpMethods {
 
 	public static final String TOPIC_STR_LIST_="TOPIC_STR_LIST_";
 	public static final String TOPIC_TIME_LIST_="TOPIC_TIME_LIST_";
+	
+
+	public static final String HOTEST_TOPIC_STR_LIST="HOTEST_TOPIC_STR_LIST";
+	public static final String HOTEST_TOPIC_TIME_LIST="HOTEST_TOPIC_TIME_LIST";
+	
+	public static final String RECOMEND_TOPIC_STR_LIST="RECOMEND_TOPIC_STR_LIST";
+	public static final String RECOMEND_TOPIC_TIME_LIST="RECOMEND_TOPIC_TIME_LIST";
 	
 	public static final String MSG_TIME_LIST="MSG_TIME_LIST";
 	public static final String MSG_STR_LIST="MSG_STR_LIST";
@@ -45,6 +54,8 @@ public class SpMethods {
 
 	public static final String LAST_COMMENT_TIME="LAST_COMMENT_TIME";
 	public static final String LAST_RENAME_TIME="LAST_RENAME_TIME";
+	
+
 	
 
 	public static final String USER_FUNID="USER_FUNID";

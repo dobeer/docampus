@@ -1,6 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/postBlogPopView"
-        android:onClick="onPlusClick"
+        android:onClick="onPopupItemClick"
     android:orientation="horizontal"
     android:background="#Ecffffff"
     android:gravity="center"
@@ -9,7 +9,7 @@
 
     <Button
         android:id="@+id/btSendText"
-        android:onClick="onPlusClick"
+        android:onClick="onPopupItemClick"
         android:layout_marginRight="30dp"
         android:layout_width="80dp"
         android:layout_height="120dp"
@@ -17,14 +17,14 @@
 
     <Button
         android:id="@+id/btSendGallery"
-        android:onClick="onPlusClick"
+        android:onClick="onPopupItemClick"
         android:layout_width="80dp"
         android:layout_height="120dp"
         android:background="@drawable/btn_send_gallery"/>
 
     <Button
         android:id="@+id/btSendCamera"
-        android:onClick="onPlusClick"
+        android:onClick="onPopupItemClick"
         android:layout_marginLeft="30dp"
         android:layout_width="80dp"
         android:layout_height="120dp"

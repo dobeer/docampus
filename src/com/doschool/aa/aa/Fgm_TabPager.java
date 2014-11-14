@@ -33,7 +33,6 @@ public abstract class Fgm_TabPager extends Fgm_Standard_Relative{
 	/******** 界面组件 ****************************************/
 	protected SlidingTab mSlidingTab;
 	protected ViewPager mViewPager;
-	protected TaskLayout taskLayout;
 
 	/******** 数据等 ****************************************/
 	protected TabPagerSpec[] mTabSpecList;

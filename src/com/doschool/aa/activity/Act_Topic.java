@@ -28,7 +28,6 @@ import com.doschool.aa.aa.Act_CommonOld;
 import com.doschool.aa.adapter.Adp_Blog;
 import com.doschool.aa.adapter.Adp_Topic;
 import com.doschool.aa.widget.WidgetFactory;
-import com.doschool.asynctask.RefreshBlogListTask;
 import com.doschool.asynctask.RefreshTopicListTask;
 import com.doschool.component.push2refresh.PullToRefreshBase;
 import com.doschool.component.push2refresh.PullToRefreshListView;

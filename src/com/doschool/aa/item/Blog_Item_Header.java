@@ -9,6 +9,7 @@ import com.doschool.methods.ConvertMethods;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -62,6 +63,13 @@ public class Blog_Item_Header extends LinearLayout {
 		this.blogData = blog;
 		
 		//头像
+		
+		if(ivHead==null)
+			Log.v("ivHead=null", "yyy");
+		if(blogData==null)
+			Log.v("blogData=null", "yyy");
+		if(blogData.author==null)
+			Log.v("author=null", "yyy");
 		DoschoolApp.newImageLoader.displayImage(blogData.author.headUrl, ivHead, DoschoolApp.dioRound);
 		Click_Person click_Person = new Click_Person(getContext(), blogData.author);
 		ivHead.setOnClickListener(click_Person);

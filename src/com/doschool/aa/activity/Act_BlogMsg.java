@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import com.doschool.aa.aa.Act_Common_Linear;
 import com.doschool.aa.adapter.Adp_Messages;
 import com.doschool.app.DoschoolApp;
-import com.doschool.asynctask.RefreshBlogListTask;
 import com.doschool.asynctask.RefreshMsgListTask;
 import com.doschool.component.push2refresh.PullToRefreshBase;
 import com.doschool.component.push2refresh.PullToRefreshListView;

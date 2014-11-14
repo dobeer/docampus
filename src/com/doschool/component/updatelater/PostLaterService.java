@@ -80,9 +80,9 @@ public class PostLaterService extends IntentService {
 						Log.v("upload_imagePath"+imagePath, "vvvvb");
 						Bitmap bmp=BitmapIOMethod.compressImageFromFile(imagePath,taskManage.mTask.defination);
 						String file = BitmapIOMethod.compressBmpToFile(bmp,taskManage.mTask.defination);
-						file=Scheme.FILE.crop(file);
 						
-						MJSONObject jObj = DoBlogSever.MicroblogImageUpload(file);
+
+						MJSONObject jObj = DoBlogSever.MicroblogImageUpload(Scheme.FILE.crop(file));
 						int code = jObj.getInt("code", 9);
 						if (code == 0) {
 							taskManage.mTask.picPathList.set(p, "name=" + jObj.getString("data"));

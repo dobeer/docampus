@@ -41,6 +41,8 @@ public class Microblog implements Serializable{
 	public int transCount;
 	public int zanCount;
 	
+	public Microblog(){}
+	
 	public Microblog(MJSONObject jObj){
 		
 		imageUrlList=new ArrayList<String>();
@@ -80,4 +82,6 @@ public class Microblog implements Serializable{
 		this.topic=new Topic(jObj.getMJSONObject("topic"));
 		
 	}
+	
+	
 }

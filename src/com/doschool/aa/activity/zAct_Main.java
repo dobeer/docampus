@@ -1,5 +1,11 @@
 ﻿package com.doschool.aa.activity;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.json.JSONException;
+
 import android.app.ActionBar.LayoutParams;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -35,6 +41,7 @@ import com.doschool.component.updatelater.IPostLater;
 import com.doschool.component.updatelater.PostLaterReceiver;
 import com.doschool.component.updatelater.PostLaterService;
 import com.doschool.component.updatelater.TaskLayout;
+import com.doschool.entity.JSONHelper;
 import com.doschool.entity.Person;
 import com.doschool.entity.SimplePerson;
 import com.doschool.entity.User;
@@ -81,10 +88,11 @@ public class zAct_Main extends FragmentActivity implements IPostLater {
 
 	private PostLaterReceiver postLaterReceiver;
 
+	
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.act_main);
 
 		// 软件升级
 		UmengUpdateAgent.setUpdateOnlyWifi(false);
@@ -96,6 +104,8 @@ public class zAct_Main extends FragmentActivity implements IPostLater {
 	}
 
 	private void createUI() {
+
+		setContentView(R.layout.act_main);
 
 		// 1.创建所有Fragment
 		fgmSquare = new Fgm_BlogSquare();
@@ -117,8 +127,10 @@ public class zAct_Main extends FragmentActivity implements IPostLater {
 		}
 
 		// 3.创建稍后上传条
-		taskLayout = (TaskLayout) findViewById(R.id.taskLayout);
-
+		RelativeLayout taskParent = (RelativeLayout) findViewById(R.id.taskParent);
+		taskLayout=new TaskLayout(this);
+		taskParent.addView(taskLayout, mScrnWidth, android.widget.RelativeLayout.LayoutParams.WRAP_CONTENT);
+		
 		// 4.创建发表Popupwindow
 		View postBlogPopView = LayoutInflater.from(this).inflate(R.layout.add_popwindow, null);
 		btSendText = (Button) postBlogPopView.findViewById(R.id.btSendText);
@@ -270,6 +282,12 @@ public class zAct_Main extends FragmentActivity implements IPostLater {
 		if (postBlogPopWindow.isShowing())
 			postBlogPopWindow.dismiss();
 
+		Intent startServiceIntent = new Intent(zAct_Main.this, PostLaterService.class);
+		Bundle bundle = new Bundle();
+		bundle.putString("operate", "start");
+		startServiceIntent.putExtras(bundle);
+		startService(startServiceIntent);
+		
 		changeTab(currentIndex);
 		registerUploadLaterReceiver();
 		
@@ -352,4 +370,20 @@ public class zAct_Main extends FragmentActivity implements IPostLater {
 		}
 	}
 
+	class Usert{
+	    private String name;
+	    private String password;
+	    public String getName() {
+	        return name;
+	    }
+	    public void setName(String name) {
+	        this.name = name;
+	    }
+	    public String getPassword() {
+	        return password;
+	    }
+	    public void setPassword(String password) {
+	        this.password = password;
+	    }
+	}
 }

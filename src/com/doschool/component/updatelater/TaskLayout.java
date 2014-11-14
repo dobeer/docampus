@@ -69,13 +69,19 @@ public class TaskLayout extends RelativeLayout {
 	
 	public TaskLayout(Context context, AttributeSet attrs) {
 		super(context);
-		// TODO Auto-generated constructor stub
+		init();
 	}
 
 	public TaskLayout(Context context) {
 		super(context);
+		init();
+		
 
 		
+	}
+	
+	public void init()
+	{
 		LayoutInflater inflater=LayoutInflater.from(getContext());
 		inflater.inflate(R.layout.task_layout, this, true);
 		
@@ -107,21 +113,15 @@ public class TaskLayout extends RelativeLayout {
 		
 		anim_hide = AnimationUtils.loadAnimation(getContext(), R.anim.upout);
 		
-		init();
+		llSending.setVisibility(View.INVISIBLE);
+		llWrong.setVisibility(View.INVISIBLE);
+		llProgress.setVisibility(View.INVISIBLE);
 		
 		Animation translateAnim = new TranslateAnimation(mScrnWidth ,0 , 0, 0);
 		translateAnim.setInterpolator(new AccelerateInterpolator());
 		translateAnim.setDuration(2000);
 		translateAnim.setRepeatCount(Animation.INFINITE);
 		ivMoving.startAnimation(translateAnim);
-		
-	}
-	
-	public void init()
-	{
-		llSending.setVisibility(View.INVISIBLE);
-		llWrong.setVisibility(View.INVISIBLE);
-		llProgress.setVisibility(View.INVISIBLE);
 	}
 	
 

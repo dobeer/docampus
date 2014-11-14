@@ -2,12 +2,16 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:padding="8dp" >
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:background="@drawable/selector_cmt_item_bg"
+    android:paddingBottom="16dp" >
 
     <ImageView
         android:id="@+id/ivHead"
         android:layout_width="32dp"
         android:layout_height="32dp"
+        android:layout_marginTop="14dp"
         android:src="@drawable/emotion_1020" />
 
     <TextView
@@ -15,11 +19,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/ivHead"
-        android:layout_marginLeft="16dp"
-        android:textSize="16sp"
+        android:paddingTop="22dp"
+        android:layout_marginLeft="8dp"
+        android:textSize="15sp"
         android:singleLine="true"
         android:maxEms="12"
-        android:textColor="#7a7a7a"
         android:text="SUB" />
 
         <TextView
@@ -27,9 +31,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/tvSub"
-        android:layout_marginLeft="2dp"
-        android:textSize="16sp"
-        android:textColor="#bdbdbd"
+        android:layout_marginLeft="8dp"
+        android:paddingTop="22dp"
+        android:textSize="15sp"
+        android:textColor="@color/dark_bg_grey"
         android:text="回复" />
         
         <TextView
@@ -37,11 +42,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/tvReply"
-        android:layout_marginLeft="2dp"
-        android:textSize="16sp"
+        android:layout_marginLeft="8dp"
+        android:paddingTop="22dp"
+        android:textSize="15sp"
         android:singleLine="true"
         android:maxEms="12"
-        android:textColor="#7a7a7a"
         android:text="OBJ" />
 
         <TextView
@@ -50,11 +55,10 @@
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/tvSub"
             android:layout_below="@+id/tvSub"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="6dp"
             android:text="dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
-            android:textColor="#212121"
-            android:textSize="16sp" />
+            android:textColor="@color/zd_black"
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/tvFloor"
@@ -62,15 +66,27 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
-            android:textColor="#bdbdbd"
-            android:textSize="8sp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/fzd_grey"
+            android:textSize="10sp"
             android:text="3楼" />
 
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/tvFloor"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/dark_bg_grey"
+            android:textSize="10sp"
+            android:text="21:00" />
+        
+        
         <ImageView
             android:id="@+id/ivDivide"
             android:layout_width="match_parent"
             android:layout_height="1px"
-            android:layout_below="@+id/tvCmt"
-            android:background="#bdbdbd" />
+            android:background="@color/fzd_grey" />
         
 </RelativeLayout>

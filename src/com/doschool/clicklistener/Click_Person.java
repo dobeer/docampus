@@ -36,20 +36,20 @@ public class Click_Person implements OnClickListener {
 	public void onClick(View v) {
 
 		MobclickAgent.onEvent(ctx, "event_click_person");
-//		Intent intent = new Intent(ctx, Act_PersonPage.class);
-//		MySession.getSession().put("person", personData);
-//		if(personData!=null && personData.personId>0)
-//		{
-//			ctx.startActivity(intent);
-//			((Activity) ctx).overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
-//		}
+		Intent intent = new Intent(ctx, Act_PersonPage.class);
+		MySession.getSession().put("person", personData);
+		if(personData!=null && personData.personId>0)
+		{
+			ctx.startActivity(intent);
+			((Activity) ctx).overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
+		}
 		
-				Intent it = new Intent(ctx,Act_SingleChat.class);				
-//				it.putExtra("toID", "1415779960358466");
-
-				it.putExtra("toID", personData.funId);
-				it.putExtra("chatType",1);
-				ctx.startActivity(it);		
+//				Intent it = new Intent(ctx,Act_SingleChat.class);				
+////				it.putExtra("toID", "1415779960358466");
+//
+//				it.putExtra("toID", personData.funId);
+//				it.putExtra("chatType",1);
+//				ctx.startActivity(it);		
 
 	}
 }

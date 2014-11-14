@@ -24,6 +24,7 @@ import android.text.SpannableString;
 import android.text.TextWatcher;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
+import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -52,16 +53,27 @@ public class BlogEditText extends EditText {
 
 	public BlogEditText(Context context, View emotion, View at, View dismiss) {
 		super(context);
-		this.setPadding(0, 0, 0, 0);
+		init(emotion, at, dismiss);
+	}
+
+
+
+	public BlogEditText(Context context, AttributeSet attrs) {
+		super(context, attrs);
+	}
+
+	public void init(View emotion, View at, View dismiss)
+	{
+//		this.setPadding(0, 0, 0, 0);
 		addTextChangedListener(new XWatcher());
 		this.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				emotionLayout.setVisibility(View.GONE);
-				viewEmotion.setBackgroundResource(R.drawable.img_emotion);
+				viewEmotion.setSelected(false);
 				atListLayout.setVisibility(View.GONE);
-				viewAt.setBackgroundResource(R.drawable.img_at);
+				viewAt.setSelected(false);
 				
 			}
 		});
@@ -78,7 +90,6 @@ public class BlogEditText extends EditText {
 		this.viewAt.setOnClickListener(onAtClickListener);
 		this.viewDismiss.setOnTouchListener(onDismissTouchListener);
 	}
-
 
 
 	class XWatcher implements TextWatcher {
@@ -229,17 +240,17 @@ public class BlogEditText extends EditText {
 			imm.hideSoftInputFromWindow(BlogEditText.this.getWindowToken(), 0);
 			if (emotionLayout.getVisibility() == View.VISIBLE) {
 				emotionLayout.setVisibility(View.GONE);
-				viewEmotion.setBackgroundResource(R.drawable.img_emotion);
+				viewEmotion.setSelected(false);
 			} else {
 				atListLayout.setVisibility(View.GONE);
-				viewAt.setBackgroundResource(R.drawable.img_at);
+				viewAt.setSelected(false);
 				
 				emotionLayout.setVisibility(View.VISIBLE);
 				Animation alphaAnim = new TranslateAnimation(0, 0, DoschoolApp.heightPixels/2, 0);
 				alphaAnim.setDuration(500);
 				emotionLayout.startAnimation(alphaAnim);
 				
-				viewEmotion.setBackgroundResource(R.drawable.img_emotion_checked);
+				viewEmotion.setSelected(true);
 			}
 			DoMethods.addAnimation(v);
 		}
@@ -252,17 +263,16 @@ public class BlogEditText extends EditText {
 			imm2.hideSoftInputFromWindow(BlogEditText.this.getWindowToken(), 0);
 			if (atListLayout.getVisibility() == View.VISIBLE) {
 				atListLayout.setVisibility(View.GONE);
-				viewAt.setBackgroundResource(R.drawable.img_at);
+				viewAt.setSelected(false);
 			} else {
 				emotionLayout.setVisibility(View.GONE);
-				viewEmotion.setBackgroundResource(R.drawable.img_emotion);
+				viewEmotion.setSelected(false);
 				
 				atListLayout.setVisibility(View.VISIBLE);
 				Animation alphaAnim = new TranslateAnimation(0, 0, DoschoolApp.heightPixels/2, 0);
 				alphaAnim.setDuration(500);
 				atListLayout.startAnimation(alphaAnim);
-				
-				viewAt.setBackgroundResource(R.drawable.img_at_checked);
+				viewAt.setSelected(true);
 			}
 			DoMethods.addAnimation(v);
 		}
@@ -275,9 +285,9 @@ public class BlogEditText extends EditText {
 			InputMethodManager imm3 = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
 			imm3.hideSoftInputFromWindow(BlogEditText.this.getWindowToken(), 0);
 			emotionLayout.setVisibility(View.GONE);
-			viewEmotion.setBackgroundResource(R.drawable.img_emotion);
+			viewEmotion.setSelected(false);
 			atListLayout.setVisibility(View.GONE);
-			viewAt.setBackgroundResource(R.drawable.img_at);
+			viewAt.setSelected(false);
 			return false;
 		}
 	};
