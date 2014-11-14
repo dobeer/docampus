@@ -1,6 +1,7 @@
 package com.doschool.aa.activity;
 
 import java.util.ArrayList;
+import java.util.zip.Inflater;
 
 import com.doschool.R;
 import com.doschool.app.DoschoolApp;
@@ -40,9 +41,13 @@ import com.doschool.entity.Message;
 import com.doschool.entity.Scrip;
 
 import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.RelativeLayout.LayoutParams;
+import android.widget.ScrollView;
 
 public class Fgm_Discover extends Fgm_Standard_Linear {
 
+	RelativeLayout YiQi,NightTalk,BlogWall,ToolLayout;
 
 	@Override
 	public void initData() {
@@ -51,7 +56,13 @@ public class Fgm_Discover extends Fgm_Standard_Linear {
 	@Override
 	public void addViewToFgm() {
 		getActionBar().setTittle("口袋小安");
-		
+		ScrollView scrollView=new ScrollView(getActivity());
+		LayoutInflater.from(getActivity()).inflate(R.layout.fgm_discover, scrollView);
+		mParent.addView(scrollView, LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+		YiQi=(RelativeLayout) scrollView.findViewById(R.id.YiQi);
+		NightTalk=(RelativeLayout) scrollView.findViewById(R.id.NightTalk);
+		BlogWall=(RelativeLayout) scrollView.findViewById(R.id.BlogWall);
+		ToolLayout=(RelativeLayout) scrollView.findViewById(R.id.ToolLayout);
 	}
 	
 }
